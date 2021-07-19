@@ -1,0 +1,16 @@
+$theme-colors: (
+  "primary": #000000,
+  "secondary": #FFD700,
+  "danger": #E5417C
+);
+
+body, html {
+  height: 100%;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+@import '~bootstrap/scss/bootstrap';
