@@ -3,10 +3,10 @@ import React, { Component, Fragment } from 'react'
 // import axios from 'axios'
 // import apiUrl from './../apiConfig'
 
-import { Container, Row, Col, Image } from 'react-bootstrap'
+import { Container, Row, Image, Button } from 'react-bootstrap'
 
-import leftImage from './img/leftImage.jpg'
-// import grocery2 from './img/grocery2.jpg'
+import sectionImage from './img/foodtruck-section-bg.jpg'
+import foodtruck from './img/Foodtruck-bg.png'
 
 class Rewards extends Component {
   constructor () {
@@ -25,14 +25,17 @@ class Rewards extends Component {
   render () {
     return (
       <Fragment>
-        <Container style={{ padding: 0 }} fluid>
+        <Container fluid>
           <Row>
-            <Col lg={6}>
-              <Image src={leftImage} fluid />
-            </Col>
-            <Col lg={6}>
-              <h1>This col. for rewardCard component five checkboxes. Need logic similar to tic tac toe. and figure out how to expand full screen</h1>
-            </Col>
+            <div className="img-wrapper">
+              <Image className="img-responsive" src={foodtruck} fluid />
+              <div className="img-overlay">
+                <Button variant="primary" size="lg">Start Your Rewards!</Button>{' '}
+              </div>
+            </div>
+          </Row>
+          <Row>
+            <Image src={sectionImage} fluid />
           </Row>
         </Container>
       </Fragment>
