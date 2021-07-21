@@ -36,7 +36,7 @@ body, html {
   content: ' ';
   display: block;
   /* adjust 'height' to position overlay content vertically */
-  height: 75%;
+  height: 70%;
 }
 
 #container {
@@ -57,9 +57,9 @@ body, html {
   background-color: #000;
   color: white;
   text-align: center;
-  height: 100px;
-  margin-top: -100px;
-  clear: both;
+  // height: 100px;
+  // margin-top: -100px;
+  // clear: both;
 }
 
 @import '~bootstrap/scss/bootstrap';
