@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-
+import { Link } from 'react-router-dom'
 // import axios from 'axios'
 // import apiUrl from './../apiConfig'
 
@@ -12,7 +12,7 @@ class Rewards extends Component {
   constructor () {
     super()
     this.state = {
-      rewards: null
+      rewards: ''
     }
   }
 
@@ -30,7 +30,7 @@ class Rewards extends Component {
             <div className="img-wrapper">
               <Image className="img-responsive" src={foodtruck} fluid />
               <div className="img-overlay">
-                <Button variant="primary" size="lg">Start Your Rewards!</Button>{' '}
+                <Link to={'/create-rewards'}><Button variant="primary" size="lg">Start Your Rewards!</Button></Link>
               </div>
             </div>
           </Row>

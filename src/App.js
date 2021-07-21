@@ -11,6 +11,9 @@ import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 // Create grid for banner to place components on
 import Rewards from './components/Rewards/Rewards'
+// import RewardCard from './components/Rewards/RewardCard'
+import CreateRewards from './components/CreateRewards/CreateRewards'
+import Footer from './components/footer'
 
 class App extends Component {
   constructor (props) {
@@ -67,8 +70,12 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
+          <AuthenticatedRoute user={user} path='/create-rewards' render={() => (
+            <CreateRewards msgAlert={this.msgAlert} user={user} />
+          )} />
         </main>
         <Route exact path='/' component={Rewards} />
+        <Footer />
       </Fragment>
     )
   }
