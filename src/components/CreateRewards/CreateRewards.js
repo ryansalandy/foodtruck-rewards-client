@@ -16,7 +16,7 @@ class CreateRewards extends Component {
         truck: '',
         rating: ''
       },
-      createRewardId: null
+      createdRewardId: null
     }
   }
 
