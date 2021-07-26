@@ -32,7 +32,7 @@ handlesubmit = event => {
   event.preventDefault()
 
   axios({
-    url: `${apiUrl}/rewards`,
+    url: apiUrl + '/rewards',
     method: 'POST',
     data: { reward: this.state.reward }
   })
@@ -70,7 +70,7 @@ render () {
               required
               name="rating"
               value={this.state.rating}
-              type="number"
+              type="text"
               placeholder="Enter Rating"
               onChange={this.handleChange}
             />

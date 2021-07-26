@@ -4,12 +4,12 @@ import apiUrl from '../apiConfig'
 export const createReward = (user, data) => {
   return axios({
     method: 'POST',
-    url: `${apiUrl}/rewards`,
-    header: { 'Authorization': `Bearer ${user.token}` },
+    url: apiUrl + '/rewards',
+    headers: { 'Authorization': `Bearer ${user.token}` },
     data: {
       reward: {
-        ratings: data.rating,
-        truck: data.truck
+        truck: data.truck,
+        rating: data.rating
       }
     }
   })

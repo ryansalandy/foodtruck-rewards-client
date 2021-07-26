@@ -9,9 +9,7 @@ import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
-// Create grid for banner to place components on
 import Rewards from './components/Rewards/Rewards'
-// import RewardCard from './components/Rewards/RewardCard'
 import CreateRewards from './components/CreateRewards/CreateRewards'
 import Footer from './components/footer'
 
