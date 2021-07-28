@@ -6,9 +6,9 @@ import { NavDropdown } from 'react-bootstrap'
 const authenticatedOptions = (
   <Fragment>
     <NavDropdown title="Rewards" id="basic-nav-dropdown">
-      <NavDropdown.Item href="#create-rewards">Create</NavDropdown.Item>
-      <NavDropdown.Item href="#action/3.2">Read</NavDropdown.Item>
-      <NavDropdown.Item href="#action/3.3">Update</NavDropdown.Item>
+      <NavDropdown.Item href="#create-reward">Create</NavDropdown.Item>
+      <NavDropdown.Item href="#index-reward">Read</NavDropdown.Item>
+      <NavDropdown.Item href="#update-reward">Update</NavDropdown.Item>
       <NavDropdown.Divider />
       <NavDropdown.Item href="#action/3.4">Delete</NavDropdown.Item>
     </NavDropdown>

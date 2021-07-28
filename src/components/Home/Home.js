@@ -8,7 +8,7 @@ import { Container, Row, Image } from 'react-bootstrap'
 import sectionImage from './img/foodtruck-section-bg.jpg'
 import foodtruck from './img/Foodtruck-bg.png'
 
-class Rewards extends Component {
+class Home extends Component {
   constructor () {
     super()
     this.state = {
@@ -25,7 +25,7 @@ class Rewards extends Component {
               <Image className="img-responsive" src={foodtruck} fluid />
             </div>
           </Row>
-          <Row id="Trucks">
+          <Row>
             <Image src={sectionImage} fluid />
           </Row>
         </Container>
@@ -34,4 +34,4 @@ class Rewards extends Component {
   }
 }
 
-export default Rewards
+export default Home

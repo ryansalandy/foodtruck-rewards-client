@@ -15,16 +15,15 @@ export const createReward = (user, data) => {
   })
 }
 
-export const readReward = (id, user) => {
+export const readReward = (user, data) => {
   return axios({
     method: 'GET',
-    url: `${apiUrl}/reward`,
-    headers: {
-      'Authorization': `Bearer ${user.token}` }
+    url: apiUrl + '/rewards',
+    headers: { 'Authorization': `Bearer ${user.token}` }
   })
 }
 
-export const updateRewards = (id, user, reward) => {
+export const updateReward = (id, user, data) => {
   return axios({
     method: 'PATCH',
     url: `${apiUrl}/reward/${id}`,
@@ -33,14 +32,14 @@ export const updateRewards = (id, user, reward) => {
     },
     data: {
       reward: {
-        points: reward.points,
+        rating: data.rating,
         owner: ''
       }
     }
   })
 }
 
-export const deletePost = (id, user) => {
+export const deleteReward = (id, user) => {
   return axios({
     method: 'DELETE',
     url: `${apiUrl}/reward/${id}`,
