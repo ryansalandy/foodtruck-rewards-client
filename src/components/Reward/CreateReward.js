@@ -1,10 +1,10 @@
-import React, { Component, Redirect } from 'react'
-import { updateReward } from '../api/reward'
-import messages from './AutoDismissAlert/messages'
+import React, { Component } from 'react'
+import { createReward } from '../../api/reward'
+import messages from '../AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-class UpdateReward extends Component {
+class CreateReward extends Component {
   constructor (props) {
     super(props)
 
@@ -13,38 +13,39 @@ class UpdateReward extends Component {
         truck: '',
         rating: ''
       },
-      updated: false
+      createdRewardId: null
     }
   }
 
-  componentDidMount () {
-    updateReward(this.props.id, this.props.user, this.state.reward)
-      .then(res => this.setState({ reward: res.data.reward }))
-      .catch(console.error)
+  handleChange = event => {
+    const updatedField = { [event.target.name]: event.target.value }
+
+    const editedReward = Object.assign(this.state.reward, updatedField)
+
+    this.setState({ reward: editedReward })
   }
 
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault()
-    updateReward(this.props.params.id, this.props.user, this.state.reward)
-      .then(() => this.setState({ updated: true }))
+
+    createReward(this.props.user, this.state.reward)
+      .then(res => this.setState({ createdRewardId: res.data.reward._id }))
       .then(() => this.props.msgAlert({
-        heading: 'Update Success',
-        message: messages.updateSuccess,
-        variant: 'Success'
+        heading: 'Created Reward',
+        message: messages.createSuccess,
+        variant: 'success'
       }))
       .catch(console.error)
   }
-  render () {
-    const { reward, updated } = this.state
-    const { handleChange, handleSubmit } = this
 
-    if (updated) {
-      return <Redirect to={`/rewards/${this.props.match.params.id}`} />
-    }
+  render () {
+    const { handleChange, handleSubmit } = this
+    const { reward } = this.state
+
     return (
-      <div className="row center mb-4">
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
-          <h3>Update Reward</h3>
+      <div className="row center">
+        <div className="col-sm-10 col-md-8 col-lg-6">
+          <h3>Create Reward</h3>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="email">
               <Form.Label>Truck Name</Form.Label>
@@ -72,7 +73,7 @@ class UpdateReward extends Component {
               variant="primary"
               type="submit"
             >
-              Submit Update
+              Submit Reward
             </Button>
           </Form>
         </div>
@@ -81,4 +82,4 @@ class UpdateReward extends Component {
   }
 }
 
-export default UpdateReward
+export default CreateReward

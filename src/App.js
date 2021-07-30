@@ -11,9 +11,9 @@ import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import Home from './components/Home/Home'
 import Footer from './components/footer'
-import CreateReward from './components/CreateReward'
-import IndexReward from './components/IndexReward'
-import UpdateReward from './components/UpdateReward'
+import CreateReward from './components/Reward/CreateReward'
+import IndexReward from './components/Reward/IndexReward'
+import ShowReward from './components/Reward/ShowReward'
 
 class App extends Component {
   constructor (props) {
@@ -76,8 +76,8 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/index-reward' render={() => (
             <IndexReward msgAlert={this.msgAlert} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/update-reward' render={() => (
-            <UpdateReward msgAlert={this.msgAlert} user={user} />
+          <AuthenticatedRoute user={user} path='/show-reward/:id' render={() => (
+            <ShowReward msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
         <Route exact path='/' component={Home} />

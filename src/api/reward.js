@@ -4,21 +4,26 @@ import apiUrl from '../apiConfig'
 export const createReward = (user, data) => {
   return axios({
     method: 'POST',
-    url: apiUrl + '/rewards',
+    url: `${apiUrl}/rewards`,
     headers: { 'Authorization': `Bearer ${user.token}` },
     data: {
-      reward: {
-        truck: data.truck,
-        rating: data.rating
-      }
+      reward: data
     }
   })
 }
 
-export const readReward = (user, data) => {
+export const indexReward = (user) => {
   return axios({
     method: 'GET',
-    url: apiUrl + '/rewards',
+    url: `${apiUrl}/rewards`,
+    headers: { 'Authorization': `Bearer ${user.token}` }
+  })
+}
+
+export const showReward = (id, user) => {
+  return axios({
+    method: 'GET',
+    url: `${apiUrl}/rewards/${id}`,
     headers: { 'Authorization': `Bearer ${user.token}` }
   })
 }
@@ -26,12 +31,11 @@ export const readReward = (user, data) => {
 export const updateReward = (id, user, data) => {
   return axios({
     method: 'PATCH',
-    url: `${apiUrl}/reward/${id}`,
-    headers: {
-      'Authorization': `Bearer ${user.token}`
-    },
+    url: `${apiUrl}/rewards/${id}`,
+    headers: { 'Authorization': `Bearer ${user.token}` },
     data: {
       reward: {
+        truck: data.truck,
         rating: data.rating,
         owner: ''
       }
@@ -42,7 +46,7 @@ export const updateReward = (id, user, data) => {
 export const deleteReward = (id, user) => {
   return axios({
     method: 'DELETE',
-    url: `${apiUrl}/reward/${id}`,
+    url: `${apiUrl}/rewards/${id}`,
     headers: { 'Authorization': `Bearer ${user.token}` }
   })
 }
