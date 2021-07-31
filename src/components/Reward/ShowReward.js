@@ -11,7 +11,6 @@ class ShowReward extends Component {
     this.state = {
       reward: null,
       deleted: false
-      // showUpdate: false
     }
   }
 
@@ -39,46 +38,7 @@ class ShowReward extends Component {
       return <Redirect to={'/index-reward'} />
     }
 
-    // let updateForm = ''
     //
-    // if (!showUpdate) {
-    //   updateFrom =
-    //   <div className="row center">
-    //     <div className="col-sm-10 col-md-8 col-lg-6">
-    //       <h3>Update Reward</h3>
-    //       <Form onSubmit={handleSubmit}>
-    //         <Form.Group controlId="email">
-    //           <Form.Label>Truck Name</Form.Label>
-    //           <Form.Control
-    //             required
-    //             type="text"
-    //             name="truck"
-    //             value={reward.truck}
-    //             placeholder="Enter Truck Name"
-    //             onChange={handleChange}
-    //           />
-    //         </Form.Group>
-    //         <Form.Group controlId="password">
-    //           <Form.Label>Rating</Form.Label>
-    //           <Form.Control
-    //             required
-    //             name="rating"
-    //             value={reward.rating}
-    //             type="number"
-    //             placeholder="Enter Rating"
-    //             onChange={handleChange}
-    //           />
-    //         </Form.Group>
-    //         <Button
-    //           variant="primary"
-    //           type="submit"
-    //         >
-    //           Update Reward
-    //         </Button>
-    //       </Form>
-    //     </div>
-    //   </div>
-    // }
 
     return (
       <Fragment>

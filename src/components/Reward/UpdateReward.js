@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
+
 import { withRouter } from 'react-router'
-import { updateReward } from '../../api/reward'
+import { showReward, updateReward } from '../../api/reward'
 import messages from '../AutoDismissAlert/messages'
+
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
@@ -21,7 +23,7 @@ class UpdateReward extends Component {
 
   componentDidMount () {
     const { match } = this.props
-    updateReward(match.params.id, this.props.user, this.state.reward)
+    showReward(match.params.id, this.props.user)
       .then(res => this.setState({ reward: res.data.reward }))
       .catch(console.error)
   }
@@ -34,6 +36,7 @@ class UpdateReward extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+
     const { match } = this.props
     updateReward(match.params.id, this.props.user, this.state.reward)
       .then(() => this.setState({ updated: true }))
@@ -53,7 +56,6 @@ class UpdateReward extends Component {
     const { updated, reward } = this.state
     const { handleChange, handleSubmit } = this
 
-    console.log('made it to update')
     if (updated) {
       return <Redirect to={'/index-reward'} />
     }
@@ -68,7 +70,7 @@ class UpdateReward extends Component {
                 required
                 type="text"
                 name="truck"
-                value={reward}
+                value={reward.truck}
                 placeholder="Enter Truck Name"
                 onChange={handleChange}
               />
@@ -77,7 +79,7 @@ class UpdateReward extends Component {
               <Form.Control
                 required
                 name="rating"
-                value={reward}
+                value={reward.rating}
                 type="number"
                 placeholder="Enter Rating"
                 onChange={handleChange}
