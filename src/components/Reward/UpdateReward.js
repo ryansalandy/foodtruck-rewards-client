@@ -64,7 +64,6 @@ class UpdateReward extends Component {
           <h3>Update Reward</h3>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="email">
-              <Form.Label>Truck Name</Form.Label>
               <Form.Control
                 required
                 type="text"
@@ -75,7 +74,6 @@ class UpdateReward extends Component {
               />
             </Form.Group>
             <Form.Group controlId="password">
-              <Form.Label>Rating</Form.Label>
               <Form.Control
                 required
                 name="rating"
