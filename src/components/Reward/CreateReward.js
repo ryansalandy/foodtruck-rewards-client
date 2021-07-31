@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
-import { withRouter } from 'react-router'
+// import { withRouter } from 'react-router'
 import { createReward } from '../../api/reward'
 import messages from '../AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
@@ -95,4 +95,4 @@ class CreateReward extends Component {
   }
 }
 
-export default withRouter(CreateReward)
+export default CreateReward
