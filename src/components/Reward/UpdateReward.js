@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import { withRouter } from 'react-router'
-import { createReward } from '../../api/reward'
+import { updateReward } from '../../api/reward'
 import messages from '../AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-class CreateReward extends Component {
+class UpdateReward extends Component {
   constructor (props) {
     super(props)
 
@@ -15,50 +15,53 @@ class CreateReward extends Component {
         truck: '',
         rating: ''
       },
-      createdId: null
+      updated: false
     }
   }
 
-  handleChange = event => {
-    const updatedField = { [event.target.name]: event.target.value }
-
-    const editedReward = Object.assign(this.state.reward, updatedField)
-
-    this.setState({ reward: editedReward })
-  }
-
-  handleSubmit = event => {
-    event.preventDefault()
-
-    createReward(this.props.user, this.state.reward)
-
-      .then(res => this.setState({ createdRewardId: res.data.reward._id }))
-
-      .then(() => this.props.msgAlert({
-        heading: 'Created Reward',
-        message: messages.createSuccess,
-        variant: 'success'
-      }))
-
+  componentDidMount () {
+    const { match } = this.props
+    updateReward(match.params.id, this.props.user, this.state.reward)
+      .then(res => this.setState({ reward: res.data.reward }))
       .catch(console.error)
   }
 
+  handleChange = (event) => {
+    const updatedField = { [event.target.name]: event.target.value }
+    const editedReward = Object.assign(this.state.reward, updatedField)
+    this.setState({ reward: editedReward })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const { match } = this.props
+    updateReward(match.params.id, this.props.user, this.state.reward)
+      .then(() => this.setState({ updated: true }))
+      .then(() => this.props.msgAlert({
+        heading: 'Success',
+        message: messages.updateSuccess,
+        variant: 'success'
+      }))
+      .catch(() => this.props.msgAlert({
+        heading: 'Failure',
+        message: messages.updateFailure,
+        variant: 'danger'
+      }))
+      .catch(console.error)
+  }
   render () {
+    const { updated, reward } = this.state
     const { handleChange, handleSubmit } = this
-    const { reward, created } = this.state
 
-    if (!reward) {
-      return <p>Loading...</p>
-    }
-
-    if (created) {
+    console.log('made it to update')
+    if (updated) {
       return <Redirect to={'/index-reward'} />
     }
 
     return (
       <div className="row center">
         <div className="col-sm-10 col-md-8 col-lg-6">
-          <h3>Create Reward</h3>
+          <h3>Update Reward</h3>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="email">
               <Form.Label>Truck Name</Form.Label>
@@ -66,7 +69,7 @@ class CreateReward extends Component {
                 required
                 type="text"
                 name="truck"
-                value={reward.truck}
+                value={reward}
                 placeholder="Enter Truck Name"
                 onChange={handleChange}
               />
@@ -76,7 +79,7 @@ class CreateReward extends Component {
               <Form.Control
                 required
                 name="rating"
-                value={reward.rating}
+                value={reward}
                 type="number"
                 placeholder="Enter Rating"
                 onChange={handleChange}
@@ -86,7 +89,7 @@ class CreateReward extends Component {
               variant="primary"
               type="submit"
             >
-              Submit Reward
+              Update Reward
             </Button>
           </Form>
         </div>
@@ -95,4 +98,4 @@ class CreateReward extends Component {
   }
 }
 
-export default withRouter(CreateReward)
+export default withRouter(UpdateReward)

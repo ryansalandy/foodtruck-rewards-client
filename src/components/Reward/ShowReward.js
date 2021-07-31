@@ -11,11 +11,11 @@ class ShowReward extends Component {
     this.state = {
       reward: null,
       deleted: false
+      // showUpdate: false
     }
   }
 
   componentDidMount () {
-    console.log(this.props)
     const { match } = this.props
     showReward(match.params.id, this.props.user)
       .then(res => this.setState({ reward: res.data.reward }))
@@ -38,6 +38,48 @@ class ShowReward extends Component {
     if (deleted) {
       return <Redirect to={'/index-reward'} />
     }
+
+    // let updateForm = ''
+    //
+    // if (!showUpdate) {
+    //   updateFrom =
+    //   <div className="row center">
+    //     <div className="col-sm-10 col-md-8 col-lg-6">
+    //       <h3>Update Reward</h3>
+    //       <Form onSubmit={handleSubmit}>
+    //         <Form.Group controlId="email">
+    //           <Form.Label>Truck Name</Form.Label>
+    //           <Form.Control
+    //             required
+    //             type="text"
+    //             name="truck"
+    //             value={reward.truck}
+    //             placeholder="Enter Truck Name"
+    //             onChange={handleChange}
+    //           />
+    //         </Form.Group>
+    //         <Form.Group controlId="password">
+    //           <Form.Label>Rating</Form.Label>
+    //           <Form.Control
+    //             required
+    //             name="rating"
+    //             value={reward.rating}
+    //             type="number"
+    //             placeholder="Enter Rating"
+    //             onChange={handleChange}
+    //           />
+    //         </Form.Group>
+    //         <Button
+    //           variant="primary"
+    //           type="submit"
+    //         >
+    //           Update Reward
+    //         </Button>
+    //       </Form>
+    //     </div>
+    //   </div>
+    // }
+
     return (
       <Fragment>
         <Container className="container-fluid mt-5 mb-5 center" style={{ margin: 'auto' }} fluid>
@@ -48,11 +90,11 @@ class ShowReward extends Component {
                   <Card.Title>{reward.truck}</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted">Truck rating: {reward.rating}</Card.Subtitle>
                   <Card.Text>
-                    <p>This is where reward information will go (ie. Digit Reward Points)</p>
-                    <ProgressBar animated now={45} />
+                    This is where reward information will go (ie. Digit Reward Points)
                   </Card.Text>
-                  <Link className="button-link" to={`/posts/${this.props.match.params.id}/edit`}><Button className="edit-button" variant="secondary" size="sm" >UPDATE</Button></Link>
-                  <Button className="delete-button button" size="sm" onClick={this.destroy}>DELETE</Button>
+                  <ProgressBar animated now={45} />
+                  <Link to={`/update-reward/${this.props.match.params.id}/edit`}><Button variant="secondary" className="mt-2" size="sm" >UPDATE</Button></Link>
+                  <Button className="delete-button button mt-2" size="sm" onClick={this.destroy}>DELETE</Button>
                 </Card.Body>
               </Card>
             </div>

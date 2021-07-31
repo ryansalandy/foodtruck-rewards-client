@@ -8,5 +8,6 @@ export default {
   changePasswordFailure: 'Failed to change passwords. Check your old password and try again.',
   createSuccess: 'Your reward was created!',
   readSuccess: 'Here is all of your rewards',
-  updateSuccess: 'Your update is complete!'
+  updateSuccess: 'Your update is complete!',
+  updateFailure: 'Your update has failed'
 }

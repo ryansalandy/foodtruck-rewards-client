@@ -26,21 +26,19 @@ class IndexReward extends Component {
 
   render () {
     const rewards = this.state.rewards.map(reward => (
-      <div key={reward.id}>
-        <Card style={{ width: '18rem', margin: '8px' }}>
-          <Card.Body>
-            <Card.Title>{reward.truck}</Card.Title>
-            <Card.Subtitle className="mb-2 text-muted">Truck rating: {reward.rating}</Card.Subtitle>
-            <Card.Text>
-              <p>This is where reward information will go (ie. Digit Reward Points)</p>
-              <ProgressBar animated now={45} />
-            </Card.Text>
-            <Link to={`/show-reward/${reward._id}`}><Button className="button" variant="secondary" size="sm">
-              Show Reward
-            </Button></Link>
-          </Card.Body>
-        </Card>
-      </div>
+      <Card key={reward.id} style={{ width: '18rem', margin: '8px' }}>
+        <Card.Body>
+          <Card.Title>{reward.truck}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">Truck rating: {reward.rating}</Card.Subtitle>
+          <Card.Text>
+            This is where reward information will go (ie. Digit Reward Points)
+          </Card.Text>
+          <ProgressBar animated now={45} />
+          <Link to={`/show-reward/${reward._id}`}><Button className="button mt-2" variant="secondary" size="sm">
+            Show Reward
+          </Button></Link>
+        </Card.Body>
+      </Card>
     ))
 
     return (

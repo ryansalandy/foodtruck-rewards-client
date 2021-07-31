@@ -8,8 +8,6 @@ const authenticatedOptions = (
     <NavDropdown title="Rewards" id="basic-nav-dropdown">
       <NavDropdown.Item href="#create-reward">Create New</NavDropdown.Item>
       <NavDropdown.Item href="#index-reward">View All</NavDropdown.Item>
-      <NavDropdown.Divider />
-      <NavDropdown.Item href="#action/3.4">Delete</NavDropdown.Item>
     </NavDropdown>
     <Nav.Link href="#change-password">Change Password</Nav.Link>
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>

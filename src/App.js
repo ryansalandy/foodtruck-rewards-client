@@ -14,6 +14,7 @@ import Footer from './components/footer'
 import CreateReward from './components/Reward/CreateReward'
 import IndexReward from './components/Reward/IndexReward'
 import ShowReward from './components/Reward/ShowReward'
+import UpdateReward from './components/Reward/UpdateReward'
 
 class App extends Component {
   constructor (props) {
@@ -78,6 +79,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/show-reward/:id' render={() => (
             <ShowReward msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} exact path='/update-reward/:id/edit' render={() => (
+            <UpdateReward msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
         <Route exact path='/' component={Home} />

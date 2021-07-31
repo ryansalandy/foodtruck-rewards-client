@@ -28,15 +28,15 @@ export const showReward = (id, user) => {
   })
 }
 
-export const updateReward = (id, user, data) => {
+export const updateReward = (id, user, reward) => {
   return axios({
     method: 'PATCH',
     url: `${apiUrl}/rewards/${id}`,
     headers: { 'Authorization': `Bearer ${user.token}` },
     data: {
       reward: {
-        truck: data.truck,
-        rating: data.rating,
+        truck: reward.truck,
+        rating: reward.rating,
         owner: ''
       }
     }
