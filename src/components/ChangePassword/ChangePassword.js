@@ -30,7 +30,7 @@ class ChangePassword extends Component {
       .then(() => msgAlert({
         heading: 'Change Password Success',
         message: messages.changePasswordSuccess,
-        variant: 'success'
+        variant: 'primary'
       }))
       .then(() => history.push('/'))
       .catch(error => {
@@ -38,7 +38,7 @@ class ChangePassword extends Component {
         msgAlert({
           heading: 'Change Password Failed with error: ' + error.message,
           message: messages.changePasswordFailure,
-          variant: 'danger'
+          variant: 'secondary'
         })
       })
   }
@@ -47,12 +47,11 @@ class ChangePassword extends Component {
     const { oldPassword, newPassword } = this.state
 
     return (
-      <div className="row center mb-4">
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
+      <div className="row center">
+        <div className="col-sm-10 col-md-8 col-lg-6">
           <h3>Change Password</h3>
           <Form onSubmit={this.onChangePassword}>
             <Form.Group controlId="oldPassword">
-              <Form.Label>Old password</Form.Label>
               <Form.Control
                 required
                 name="oldPassword"
@@ -63,7 +62,6 @@ class ChangePassword extends Component {
               />
             </Form.Group>
             <Form.Group controlId="newPassword">
-              <Form.Label>New Password</Form.Label>
               <Form.Control
                 required
                 name="newPassword"

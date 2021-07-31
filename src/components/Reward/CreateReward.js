@@ -35,9 +35,9 @@ class CreateReward extends Component {
       .then(res => this.setState({ createdRewardId: res.data.reward._id }))
 
       .then(() => this.props.msgAlert({
-        heading: 'Created Reward',
+        heading: 'New Reward Created!',
         message: messages.createSuccess,
-        variant: 'success'
+        variant: 'primary'
       }))
 
       .catch(console.error)
@@ -61,7 +61,6 @@ class CreateReward extends Component {
           <h3>Create Reward</h3>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="email">
-              <Form.Label>Truck Name</Form.Label>
               <Form.Control
                 required
                 type="text"
@@ -72,7 +71,6 @@ class CreateReward extends Component {
               />
             </Form.Group>
             <Form.Group controlId="password">
-              <Form.Label>Rating</Form.Label>
               <Form.Control
                 required
                 name="rating"
@@ -86,7 +84,7 @@ class CreateReward extends Component {
               variant="primary"
               type="submit"
             >
-              Submit Reward
+              Submit
             </Button>
           </Form>
         </div>

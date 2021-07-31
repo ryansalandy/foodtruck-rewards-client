@@ -31,7 +31,7 @@ class SignIn extends Component {
       .then(() => msgAlert({
         heading: 'Sign In Success',
         message: messages.signInSuccess,
-        variant: 'success'
+        variant: 'primary'
       }))
       .then(() => history.push('/'))
       .catch(error => {
@@ -39,7 +39,7 @@ class SignIn extends Component {
         msgAlert({
           heading: 'Sign In Failed with error: ' + error.message,
           message: messages.signInFailure,
-          variant: 'danger'
+          variant: 'secondary'
         })
       })
   }
@@ -48,12 +48,11 @@ class SignIn extends Component {
     const { email, password } = this.state
 
     return (
-      <div className="row center mb-4">
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
+      <div className="row center">
+        <div className="col-sm-10 col-md-8 col-lg-6">
           <h3>Sign In</h3>
           <Form onSubmit={this.onSignIn}>
             <Form.Group controlId="email">
-              <Form.Label>Email address</Form.Label>
               <Form.Control
                 required
                 type="email"
@@ -64,7 +63,6 @@ class SignIn extends Component {
               />
             </Form.Group>
             <Form.Group controlId="password">
-              <Form.Label>Password</Form.Label>
               <Form.Control
                 required
                 name="password"

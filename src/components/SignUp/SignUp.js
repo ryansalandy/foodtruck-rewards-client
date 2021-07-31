@@ -31,9 +31,9 @@ class SignUp extends Component {
       .then(() => signIn(this.state))
       .then(res => setUser(res.data.user))
       .then(() => msgAlert({
-        heading: 'Sign Up Success',
+        heading: 'Sign Up Success! ',
         message: messages.signUpSuccess,
-        variant: 'success'
+        variant: 'primary'
       }))
       .then(() => history.push('/'))
       .catch(error => {
@@ -41,7 +41,7 @@ class SignUp extends Component {
         msgAlert({
           heading: 'Sign Up Failed with error: ' + error.message,
           message: messages.signUpFailure,
-          variant: 'danger'
+          variant: 'secondary'
         })
       })
   }
@@ -50,12 +50,11 @@ class SignUp extends Component {
     const { email, password, passwordConfirmation } = this.state
 
     return (
-      <div className="row center mb-4" >
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
+      <div className="row center" >
+        <div className="col-sm-10 col-md-8 col-lg-6">
           <h3>Sign Up</h3>
           <Form onSubmit={this.onSignUp}>
             <Form.Group controlId="email">
-              <Form.Label>Email address</Form.Label>
               <Form.Control
                 required
                 type="email"
@@ -66,7 +65,6 @@ class SignUp extends Component {
               />
             </Form.Group>
             <Form.Group controlId="password">
-              <Form.Label>Password</Form.Label>
               <Form.Control
                 required
                 name="password"
@@ -77,7 +75,6 @@ class SignUp extends Component {
               />
             </Form.Group>
             <Form.Group controlId="passwordConfirmation">
-              <Form.Label>Password Confirmation</Form.Label>
               <Form.Control
                 required
                 name="passwordConfirmation"

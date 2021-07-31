@@ -19,7 +19,7 @@ class IndexReward extends Component {
       .then(() => this.props.msgAlert({
         heading: 'Success',
         message: messages.readSuccess,
-        variant: 'success'
+        variant: 'primary'
       }))
       .catch(console.error)
   }

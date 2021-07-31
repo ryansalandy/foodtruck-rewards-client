@@ -40,12 +40,12 @@ class UpdateReward extends Component {
       .then(() => this.props.msgAlert({
         heading: 'Success',
         message: messages.updateSuccess,
-        variant: 'success'
+        variant: 'primary'
       }))
       .catch(() => this.props.msgAlert({
         heading: 'Failure',
         message: messages.updateFailure,
-        variant: 'danger'
+        variant: 'secondary'
       }))
       .catch(console.error)
   }

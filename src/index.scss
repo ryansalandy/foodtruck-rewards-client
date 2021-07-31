@@ -1,6 +1,6 @@
 $theme-colors: (
-  "primary": #000000,
-  "secondary": #FFD700,
+  "primary": #000,
+  "secondary": #FFBF27,
   "danger": #E5417C
 );
 
@@ -11,7 +11,7 @@ $theme-colors: (
 
 body, html {
   height: 100%;
-
+  background-image: url("/background.png");
 }
 
 .center {
@@ -65,8 +65,8 @@ body, html {
   width: 100%;
   padding-top: 18px;
   padding-bottom: 8px;
-  background-color: #000;
-  color: white;
+  background-color: #FFBF27;
+  color: black;
   text-align: center;
 }
 

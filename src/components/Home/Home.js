@@ -1,11 +1,8 @@
 import React, { Component, Fragment } from 'react'
-// import { Link } from 'react-router-dom'
-// import axios from 'axios'
-// import apiUrl from './../apiConfig'
 
 import { Container, Row, Image } from 'react-bootstrap'
 
-import sectionImage from './img/foodtruck-section-bg.jpg'
+import sectionImage from './img/owners.png'
 import foodtruck from './img/Foodtruck-bg.png'
 
 class Home extends Component {
