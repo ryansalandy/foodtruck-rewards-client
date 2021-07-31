@@ -9,9 +9,12 @@ $theme-colors: (
   padding: 0;
 }
 
+body {
+  background-image: url("background.png");
+}
+
 body, html {
   height: 100%;
-  background-image: url("background.png");
 }
 
 .center {
