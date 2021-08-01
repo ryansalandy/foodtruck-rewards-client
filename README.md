@@ -9,14 +9,14 @@ MERN Stack
 * React.js
 * Node.js
 
+V2. will need to add the actual rewards and point system.
+
 ### Links
-* [Backend API Repo](https://choosealicense.com/licenses/mit/)
-* [Deployed Site](https://ryansalandy.github.io/foodtruck-rewards-client/#/)
+* [API Repo](https://github.com/ryansalandy/foodtruck-rewards-api)
+* [Deployed API](https://boiling-inlet-07692.herokuapp.com/)
 
 ## Planning
 Started with what the resource would be and how I would CRUD on that resource. I then decided that the resource should be a digital reward card that users will create to track points. The routes where then created along with user stories, ERD, and wireframe.
-
-V2. will have the actual rewards added to the card by trucks for users to earn
 
 ### Paths & Routes
 | Method | Path | Action | CRUD |
