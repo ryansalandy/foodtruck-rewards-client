@@ -12,6 +12,8 @@ This is a simple aplication to track Foodtruck reward programs
 ## Roadmap & Iterations
 
 ## Planning
+
+### Paths & Routes
 | Method | Path | Action | CRUD |
 | ------ | ---- | ------ | ---- |
 | POST   | /reward | create | Create |
