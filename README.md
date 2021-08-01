@@ -1,17 +1,22 @@
 # Foodtruck rewards
+This is a simple aplication to track Foodtruck reward programs. Where user can create a reward, read status of a reward, update the reward, and delete reward.
 
-This is a simple aplication to track Foodtruck reward programs
+Foodtruck Reward contain the following technologies:
 
-## Links
-[Backend API](https://choosealicense.com/licenses/mit/)
-[Deployed Site](https://ryansalandy.github.io/foodtruck-rewards-client/#/)
+MERN Stack
+* Mongo DB
+* Express
+* React.js
+* Node.js
 
-## Technologies Used
-* Mongo DB * Express * React.js * Node.js (MERN Stack)
-
-## Roadmap & Iterations
+### Links
+* [Backend API Repo](https://choosealicense.com/licenses/mit/)
+* [Deployed Site](https://ryansalandy.github.io/foodtruck-rewards-client/#/)
 
 ## Planning
+Started with what the resource would be and how I would CRUD on that resource. I then decided that the resource should be a digital reward card that users will create to track points. The routes where then created along with user stories, ERD, and wireframe.
+
+V2. will have the actual rewards added to the card by trucks for users to earn
 
 ### Paths & Routes
 | Method | Path | Action | CRUD |
